@@ -1,5 +1,5 @@
 '''
-Purpose: The purpose is to check any input feature class for polygon overlap then output a new file or overwrite the existing and clean up overlaps.
+Purpose: The purpose is to create an integration solutions python module class
 
 Date: May 2024
 
@@ -37,5 +37,9 @@ class Variable_Secrets:
         returnUser = config[self.variableRequired][self.userRequired]
         returnPassword = config[self.variableRequired][self.passwordRequired]
         returnDrive = config[self.variableRequired][self.driveNeeded]
+        print (returnUser)
+        print (returnPassword)
+        print (returnDrive)
+
 
         
