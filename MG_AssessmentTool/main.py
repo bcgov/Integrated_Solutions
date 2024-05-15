@@ -31,11 +31,11 @@ from osgeo import gdal
 import configparser
 creds = configparser.ConfigParser()
 creds.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\creds.ini")
-User_BCGW = creds['BCGW']['User']
-Password_user = creds['BCGW']['Secret']
+User_BCGW = creds['Oracle']['User']
+Password_user = creds['Oracle']['Password']
  
 variables = configparser.ConfigParser()
-variables.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\creds.ini")
+variables.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\variables.ini")
 
 
 # import the south coast function library and the email function 
@@ -142,6 +142,12 @@ class AGOL_SURVEY_FEATURE:
     DATA. 
 
     ASSUMES THAT THE PRIMARY KEY FIELD BEING USED IS THE 'objectid'
+
+    NEED TO ADD FOR MOUNTAIN GOAT
+    # MG UWR AOI Overlap
+    # MG UWR Occupancy AOI Overlap
+    # MG Observations AOI Overlap
+    # MG Suitable Habitat AOI Overlap
     """
 
     def __init__(self, AGOL_SURVEY_CONNECTION, primary_key, primary_key_field='objectid'):
