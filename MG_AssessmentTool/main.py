@@ -27,8 +27,19 @@ import fiona
 from PIL import Image
 from osgeo import gdal
 
+# Config Section
+import configparser
+creds = configparser.ConfigParser()
+creds.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\creds.ini")
+User_BCGW = creds['BCGW']['User']
+Password_user = creds['BCGW']['Secret']
+ 
+variables = configparser.ConfigParser()
+variables.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\creds.ini")
+
+
 # import the south coast function library and the email function 
-sys.path.append(r'\\spatialfiles.bcgov\work\srm\sry\Local\scripts\python')
+sys.path.append(variables['VARIABLES']['python_library'])
 from sc_python_function_library import * 
 import email_function 
 from email_function import SendEmail
@@ -57,8 +68,8 @@ class AGOL_SURVEY_CONNECTION:
         print("INITIALIZING AGOL CONNECTION")
         try:
             self.item_id = item_id
-            self.url = 'https://governmentofbc.maps.arcgis.com'
-            self.agol_username, self.agol_password = get_credentials("agol")
+            self.url = creds['AGOL']['URL']
+            self.agol_username, self.agol_password = creds['AGOL']['User'], creds['AGOL']['Password']
             self.gis = GIS(self.url, self.agol_username, self.agol_password, verify_cert=False)
         except:
             raise ValueError("    UNABLE TO CONNECT TO AGOL")
@@ -142,7 +153,7 @@ class AGOL_SURVEY_FEATURE:
         self.feature = self.AGOL_SURVEY_CONNECTION.feature_layer.query(where=f"{primary_key_field} = '{primary_key}'", out_fields='*')
         print(self.feature)
         # USED FOR CREATING THE BACKUP FOLDER FOR ALL RECORDS SUBMITTED TO S123. DIRECTORY CREATED BASED ON ITEM ID AND OBJECT ID
-        self.archive_directory = r"\\spatialfiles.bcgov\Archive\srm\sry\Local\ArcGISOnline\S123_DATA__BACKUPS"
+        self.archive_directory = variables['VARIABLES']['archive_directory']
         self.archive_folder = os.path.join(self.archive_directory, f"ARCHIVE_{self.AGOL_SURVEY_CONNECTION.item_id}")
         
         if not os.path.exists(self.archive_folder):
@@ -244,12 +255,12 @@ class MAMU_AGOL_TOOLS:
         self.email = "temp"
         self.oid = feature.primary_key
         self.feature = feature
-        self.population_shapes = r"\\spatialfiles.bcgov\work\srm\sry\Workarea\emillan\MAMU\SCRIPT\MAMU_Screening\MAMU_Screening_Workspace\MAMU_Screening_Workspace.gdb\MAMU_WHA"
-        self.provincial_dem = r"\\imagefiles.bcgov\dem\elevation\trim_25m\bcalbers\tif\bc_elevation_25m_bcalb.tif"
+        self.population_shapes = variables['VARIABLES'['population_shapes']
+        self.provincial_dem = variables['VARIABLES'['provincial_dem']
 
         
         # arcpy env configuration 
-        arcpy.env.workspace = r"\\spatialfiles.bcgov\work\srm\sry\Workarea\emillan\MAMU\SCRIPT\MAMU_Screening\MAMU_Screening_Workspace\MAMU_Screening_Workspace.gdb"
+        arcpy.env.workspace = variables['VARIABLES'['workspace']
         arcpy.env.overwriteOutput = True
         arcpy.env.parallelProcessingFactor = "100%"
 
@@ -261,9 +272,9 @@ class MAMU_AGOL_TOOLS:
             print("Error - License Not Available")
 
         # bcgw connection 
-        oracle_username, oracle_password, agol_username, agol_password = get_credentials("oracle", "agol")
+        oracle_username, oracle_password, agol_username, agol_password = creds['ORACLE']['User'], creds['ORACLE']['Password'], creds['AGOL']['User'], creds['AGOL']['Password']
         connection_name = "bcgw"
-        bcgw_path = r"\\spatialfiles.bcgov\work\srm\sry\Workarea\emillan\MAMU\SCRIPT\MAMU_Screening\MAMU_Screening_Workspace"
+        bcgw_path = creds['ORACLE']['BCGW_path']
         self.bcgw_name = f'{connection_name}.sde'
         try:
             create_bcgw_connection(oracle_password=oracle_password, oracle_username=oracle_username, bcgw_connection=f"{bcgw_path}\{self.bcgw_name}")
@@ -281,7 +292,7 @@ class MAMU_AGOL_TOOLS:
         """
         """
         outExtractByMask = arcpy.sa.ExtractByMask(self.provincial_dem, self.feature_class, "INSIDE")
-        temp_file = r"\\spatialfiles.bcgov\work\srm\sry\Workarea\emillan\MAMU\SCRIPT\MAMU_Screening\MAMU_Screening_Workspace\raster_wha_class_test.tif"
+        temp_file = variables['VARIABLES']['temp_file']
         outExtractByMask.save(temp_file)
 
     def create_vri_rasters(self, var_name, output_name, type, use_existing=True):
@@ -357,7 +368,7 @@ class MAMU_AGOL_TOOLS:
         """
         temp_fc = f"suit_hab_clip_{self.oid}"
 
-        Suitable_HabitatLayer = r"\\spatialfiles.bcgov\Work\wlap\nan\Workarea\Ecosystems_share\MAMU\Suitable_Habitat\SuitHab_Updates\SuitHab_Updates.gdb\Working\SuitHab_WNVI_EVI_SMC_depl_to_Dec2022_EditedMar2024"
+        Suitable_HabitatLayer = variables['VARIABLES']['Suitable_HabitatLayer']
         arcpy.analysis.PairwiseClip(
             in_features=Suitable_HabitatLayer,
             clip_features=self.feature_class,
