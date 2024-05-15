@@ -30,12 +30,12 @@ from osgeo import gdal
 # Config Section
 import configparser
 creds = configparser.ConfigParser()
-creds.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\creds.ini")
+creds.read(r"C:\Users\EBRAUNST\Desktop\Config\creds.ini")
 User_BCGW = creds['Oracle']['User']
 Password_user = creds['Oracle']['Password']
  
 variables = configparser.ConfigParser()
-variables.read(r"\\Sfp.idir.bcgov\u109\EBRAUNST$\Profile\Desktop\Config\variables.ini")
+variables.read(r"C:\Users\EBRAUNST\Desktop\Config\variables.ini")
 
 
 # import the south coast function library and the email function 
