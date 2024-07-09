@@ -1,0 +1,51 @@
+name: PSCIS Survey to ESF
+
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Set up Conda environment
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        activate-environment: pscis_env
+        python-version: 3.11
+
+    - name: Install dependencies
+      uses: nick-fields/retry@v3
+      with:
+        timeout_minutes: 10
+        max_attempts: 3
+        shell: bash
+        command: |
+          conda env update --file pscis/survey_to_esf/requirements.yaml --name pscis_env
+          conda env list
+          conda init bash
+          . ~/.bashrc
+          conda activate pscis_env
+        
+    - name: Run script
+      shell: bash
+      #env:
+        #AGO_PORTAL_URL: ${{secrets.MAPHUB_PORTAL_URL}}
+        #AGO_USER: ${{secrets.MAPHUB_USER}}
+        #AGO_PASS: ${{secrets.MAPHUB_PW}}
+
+      run: |
+        # you may have to activate the environment before running the 
+        # python script, and you likely need to say python3 vs just python
+        conda init bash
+        . ~/.bashrc
+        conda activate pscis_env
+        python3 pscis/survey_to_esf/pscis_main.py
