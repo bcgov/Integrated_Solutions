@@ -1,7 +1,7 @@
 '''
 Purpose: The purpose is to create an integration solutions python module class
 
-Date: May 2024
+Date: July 2024
 
 Created by: Graham MacGregor Integration Solutions
 
