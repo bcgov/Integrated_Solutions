@@ -1,0 +1,12 @@
+name: pscis_env
+channels:
+  - esri
+  - anaconda
+  - defaults
+dependencies:
+  - python=3.11
+  - arcgis
+  - python-dotenv
+  - pip
+  - pip:
+    - "--editable=git+https://github.com/bcgov/integration_solutions.git#egg=PSCIS&subdirectory=survey_to_esf&subdirectory=configuration_and_functions"
