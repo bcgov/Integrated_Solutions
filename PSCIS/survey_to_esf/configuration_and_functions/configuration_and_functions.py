@@ -8,3 +8,6 @@ from pathlib import Path
 from zipfile import ZipFile
 from datetime import datetime
 import time
+
+def test_function():
+  print("Wassup?")
