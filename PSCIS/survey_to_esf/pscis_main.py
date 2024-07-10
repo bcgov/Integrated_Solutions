@@ -7,4 +7,6 @@ print("Hello World")
 
 import configuration_and_functions as conf
 
-conf.test_function()
+agol_connection = conf.connect_to_agol()
+
+print(agol_connection)
