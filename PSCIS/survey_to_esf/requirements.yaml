@@ -9,4 +9,4 @@ dependencies:
   - python-dotenv
   - pip
   - pip:
-    - "--editable=git+https://github.com/bcgov/integration_solutions.git#egg=PSCIS&subdirectory=survey_to_esf&subdirectory=configuration_and_functions"
+    - "--editable=git+https://github.com/bcgov/Integrated_Solutions.git#egg=configuration_and_functions&subdirectory=PSCIS/survey_to_esf/configuration_and_functions"
