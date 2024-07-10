@@ -37,10 +37,10 @@ jobs:
         
     - name: Run script
       shell: bash
-      #env:
-        #AGO_PORTAL_URL: ${{secrets.MAPHUB_PORTAL_URL}}
-        #AGO_USER: ${{secrets.MAPHUB_USER}}
-        #AGO_PASS: ${{secrets.MAPHUB_PW}}
+      env:
+        AGO_PORTAL_URL: ${{secrets.MAPHUB_PORTAL_URL}}
+        AGO_USER: ${{secrets.MAPHUB_USER}}
+        AGO_PASS: ${{secrets.MAPHUB_PW}}
 
       run: |
         # you may have to activate the environment before running the 
