@@ -48,4 +48,4 @@ jobs:
         conda init bash
         . ~/.bashrc
         conda activate pscis_env
-        python3 pscis/survey_to_esf/pscis_main.py
+        python3 PSCIS/survey_to_esf/pscis_main.py
