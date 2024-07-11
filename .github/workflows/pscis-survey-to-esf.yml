@@ -41,6 +41,11 @@ jobs:
         AGO_PORTAL_URL: ${{secrets.MAPHUB_PORTAL_URL}}
         AGO_USER: ${{secrets.MAPHUB_USER}}
         AGO_PASS: ${{secrets.MAPHUB_PW}}
+        PSCIS_S3_ROOT: ${{secrets.PSCIS_S3_ROOT}}
+        PSCIS_S3_ENDPOINT: ${{secrets.PSCIS_S3_ENDPOINT}}
+        PSCIS_S3_ACCESSID: ${{secrets.PSCIS_S3_ACCESSID}}
+        PSCIS_S3_SECRET: ${{secrets.PSCIS_S3_SECRET}}
+        PSCIS_S3_BUCKET: ${{secrets.PSCIS_S3_BUCKET}}
 
       run: |
         # you may have to activate the environment before running the 
