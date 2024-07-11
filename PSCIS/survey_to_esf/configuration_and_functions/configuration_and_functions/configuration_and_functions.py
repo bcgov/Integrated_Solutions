@@ -8,6 +8,7 @@ from pathlib import Path
 from zipfile import ZipFile
 from datetime import datetime
 import time
+from minio import Minio
 
 # %% Logging
 import logging
@@ -60,7 +61,6 @@ def connect_to_s3():
             Returns:
                     S3Connection (obj): Minio connection to S3 Object Storage bucket
     '''
-    from minio import Minio
     logging.info("Creating connection to S3 Object Storage...")
     S3Connection = Minio(endpoint,access_id,secret)
     logging.info("Connection to S3 Object Storage created successfully")
