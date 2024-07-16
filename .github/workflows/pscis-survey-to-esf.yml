@@ -2,7 +2,7 @@ name: PSCIS Survey to ESF
 
 on:
   schedule:
-    - cron: '0 17 31 2 *'
+    - cron: '0 0 31 * *'
   workflow_dispatch:
     
 jobs:
