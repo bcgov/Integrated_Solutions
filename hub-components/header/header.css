@@ -10,6 +10,8 @@ COLOUR NOTES
   --hover-underline-color: #fff;
 */
 
+/**************** HEADER ******************/
+
 .navbar {
   padding: 0 10%;
 }
@@ -22,7 +24,7 @@ COLOUR NOTES
   flex-wrap: wrap;
   width: 100%;
   height: 60px;
-  box-shadow: 0 3px #fca819;
+  box-shadow: 0 3px rgba(252, 186, 25, 1);
 }
 
 .header-style .navbar-header {
@@ -60,13 +62,13 @@ COLOUR NOTES
   padding-right: 10px;
 }
 
-.header-style .header-content .BCLogo-link {
+.header-style .header-content .LidarBCLogo-link {
   margin-left: 10px;
   font-size:18px;
   font-weight:bold;
 }
 
-.header-style .header-content .BCLogo {
+.header-style .header-content .LidarBCLogo {
   margin-top: 2px;
   width: 125px;
 }
