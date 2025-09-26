@@ -1,13 +1,12 @@
-<style>
-  .banner {
+.banner {
     position: relative;
     height: 70vh;
     min-height: 400px;
     background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pd19-3-22284a.jpg?auto=format&bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1400&s=561aa4f334e0129c5d1c6d102cc4936e') center/cover no-repeat;
     background-position: 20% center
-  }
-  /* dark‐blue → transparent gradient on top of image */
-  .banner__overlay {
+}
+/* dark‐blue → transparent gradient on top of image */
+.banner__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -15,30 +14,30 @@
       rgba(0,29,85,0.9) 20%,
       rgba(0,29,85,0) 80%
     );
-  }
-  .banner__inner {
+}
+.banner__inner {
     position: relative;           /* sits above the overlay */
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
     color: #fff;
-  }
-  .banner__title {
+}
+.banner__title {
     font-size: 4rem;
     line-height: 1.1;
     margin: 0 0 1rem;
     font-weight: 300;
-  }
-  .banner__title--accent {
+}
+.banner__title--accent {
     color: #fdb813;               /* gold accent */
     font-weight: 500;
-  }
-  .banner__tagline {
+}
+.banner__tagline {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-  }
-  .banner__buttons .btn {
+}
+.banner__buttons .btn {
     display: inline-block;
     padding: .75rem 1.5rem;
     border-radius: 4px;
@@ -46,25 +45,25 @@
     font-size: 1rem;
     margin-right: 1rem;
     transition: background .2s, color .2s;
-  }
-  .btn--outline {
+}
+.btn--outline {
     border: 2px solid #fff;
     color: #fff;
     background: transparent;
-  }
+}
   .btn--outline:hover {
     background: rgba(255,255,255,0.2);
-  }
-  .btn--primary {
+}
+.btn--primary {
     background: #fdb813;
     color: #00305e;
     border: 2px solid #fdb813;
-  }
-  .btn--primary:hover {
+}
+.btn--primary:hover {
     background: #e6ac00;
-  }
+}
   
-  .flex-row-container {
+.flex-row-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
