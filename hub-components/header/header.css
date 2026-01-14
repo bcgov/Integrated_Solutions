@@ -1,29 +1,17 @@
-/**************** HEADER ******************/
-
-/*
-COLOUR NOTES
-  --header-bgcolor: #003366
-  --header-accent: #fca819;
-  --header-font: #fff;
-  --logo-right-border: #d6d6d6;
-  --nav-divider-color: #4b5e73;
-  --hover-underline-color: #fff;
-*/
-
-/**************** HEADER ******************/
-
 .navbar {
-  padding: 0 10%;
+  padding: 0 10px;
 }
 
+/* Header */
 .header-style {
   display: flex;
-  background-color: #003366;
-  /*background-color: transparent;*/
-  color: #fff;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 60px;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   box-shadow: 0 3px rgba(252, 186, 25, 1);
 }
 
@@ -32,101 +20,102 @@ COLOUR NOTES
   margin-right:0;
 }
 
-.header-style .header-content {
+.header-content {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  z-index: 1;
 }
 
-.header-style .header-content h2 {
+.header-content h2 {
   margin: 5px 5px 0 18px;
   font-weight: bold;
   font-size: 1.5em;
+  color: var(--header-text);
 }
 
-.header-style .header-content a {
+.header-content a {
   text-decoration: none;
-  color: #ffffff !important;
+  color: var(--link-text);
 }
 
-.header-style .header-content a:hover {
+.header-content a:hover {
   text-decoration: none;
 }
 
-.header-style .header-content .BClogo {
-  content: url("https://github.com/bcgov/design-system/blob/master/components/assets/images/logo-banner.png?raw=true");
-  margin-bottom: 0;
-  width: 100%;
-  border-right: 1px solid #d6d6d6;
+.BClogo {
+  content: url("https://nrs.objectstore.gov.bc.ca/scgis/general_images/BCID_H_RGB_pos.png");
+  border-right: 0px solid var(--borders-dividers);
   padding-right: 10px;
+  width: 155px;
 }
 
-.header-style .header-content .LidarBCLogo-link {
+.BCLogo-link {
   margin-left: 10px;
-  font-size:18px;
+  font-size:24px;
   font-weight:bold;
+  color: var(--header-text) !important;
 }
 
-.header-style .header-content .LidarBCLogo {
-  margin-top: 2px;
-  width: 125px;
-}
+/* Navigation */
 
-.header-style .menu-content {
+.menu-content, .navbar-nav {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding-left: 20px;
+  z-index: 1;
 }
-
-.navbar-nav {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
 
 
 .navbar-nav > li {
   margin-right: 10px;
-  color: #ffffff;
+  color: var(--header-text);
   padding: 0 0.5rem;
 }
 
+.navbar-nav > li:first-of-type {
+    padding-left:20px;
+}
+
 .navbar-nav > li:not(:first-of-type) {
-  border-left:1px solid #4b5e73;
+  border-left:1px solid var(--borders-dividers);
 }
 
 .navbar-nav .nav-item {
   margin: auto 0;
-  color: #ffffff;
+  color: var(--header-text);
+}
+
+.nav-item {
+  padding:3px;
 }
 
 .navbar-nav .nav-item a {
-  background: #003366;
+  background: var(--header-bg);
   /*background: transparent;*/
-  color: #ffffff;
+  color: var(--link-text);
+  font-size:16px;
+  font-weight:500;
 }
 
 .navbar-nav .nav-link:hover {
-  background:#003366;
-  /*background: transparent !important;*/
-  border-bottom: 2px solid #ffffff;
-  margin-bottom: -2px;
+  background:var(--borders-dividers);
+  border-bottom: 0px solid var(--borders-dividers);
+  border-radius:10px;
 }
 
 .navbar-nav .nav-link:focus {
-  background: #003366 !important;
-  /*background: transparent !important;*/
-  border-bottom: 2px solid #ffffff;
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--borders-dividers);
   margin-bottom: -2px;
 }
 
 .navbar-nav .nav-item .nav-link{
-  color: #ffffff;
+  color: var(--link-text);
   margin-top: 0px;
 }
+
+
+/* Hamburger Menu */
 
 .button-content {
   display: none;
@@ -134,92 +123,97 @@ COLOUR NOTES
 
 .navbar-toggle-button {
   background-color: transparent;
-  outline: 0;
-  box-shadow:none;
   padding: 0 15px;
-  border: 1px solid #fff;
+  border: 1px solid var(--dividers-borders);
   transition: 0.5s;
 }
 
 .hamburger-container {
   display: inline-block;
   cursor: pointer;
+  z-index: 10;
 }
 
 .hamburger-container .bar1, .bar2, .bar3 {
   width: 35px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: var(--link-text);
   margin: 8px 0;
 }
 
-.nav-style {
-  display: flex;
-  background-color: #ffffff;
-  border: 1px solid #38598A;
-  position: relative;
-  margin-left: auto;
-  padding: 0;
-}
+/* Dropdown Menu */
 
 .dropdown-menu {
   margin-top: 2px;
-  padding-right: 10px;
-  /*width: 100%;*/
-  padding: 0;
-  /*background-color: #003366;*/
-  border: 1px solid #000;
-  border: 1px solid rgba(0,0,0,.15);
-  border-top: none;
-  color: #ffffff;
+  background-color: var(--header-bg);
+  border: 1px solid var(--borders-dividers);
+  color: var(--header-text);
+  z-index: 2;
+  font-size: 16px;
 }
 
-.dropdown-menu:active{
-  background-color: transparent;
+.dropdown-menu li > a {
+  color: var(--link-text) !important;
 }
 
-.nav-item:active {
-  background-color: transparent;
-}
-
-.dropdown-menu li{
-  margin: 0;
-  color: #ffffff;
-}
-
-.dropdown-menu li a{
-  color: #ffffff !important;
-}
-
-.dropdown-menu .nav-sublink:focus, .dropdown-menu .nav-sublink:hover {
-  color: #ffffff;
-  background-color: #FCBA19;
+.dropdown-menu li > a:hover {
+  background-color: var(--borders-dividers);
 }
 
 .dropdown:hover .dropdown-menu {
   display: inline-block;
-  color: #ffffff;
   }
+  
+  
+/* Request Button */
 
-/* max-width: 1420px */
-@media only screen and (max-width: 1280px){
-    .nav-style{
-      top: 0;
-    }
-    
-    .navbar-collapse {
-      padding-right: 0;
-      padding-left: 0;
-    }
-    
-    .navbar-collapse.in {
-      overflow-y: unset;
-    }
-    
-    .navbar-secondary {
-      display: none;
-    }
-  }
+.headbutton-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-left: 20px;
+}
+
+.headbutton {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 1.5px solid;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.headbutton:last-child {
+  margin-bottom: 0;
+}
+
+.geospatial-headbutton:hover {
+  background-color: #1a5a96;
+  color: white;
+  border: 1.5px solid #003366;
+  text-decoration: none;
+}
+
+.client-headbutton:hover {
+  background-color: #cd9600;
+  color: #003366;
+  border: 1.5px solid #003366;
+  text-decoration: none;
+}
+
+.geospatial-headbutton {
+  background-color: #003366;
+  border-color: #003366;
+  color: white;
+}
+
+.client-headbutton {
+  background-color: #fcba19;
+  border-color: #fcba19;
+  color: #003366;
+}
+
 
 /* MODAL START */
 
@@ -241,8 +235,7 @@ COLOUR NOTES
 
 .modal.right .modal-body {
   height: 100%;
-  background-color: #005c97;
-  background-color: rgba(0,92,151,1);
+  background-color: var(--header-bg);
   padding: 15px 15px 80px;
 }
       
@@ -267,8 +260,8 @@ COLOUR NOTES
 }
 
 .modal-header {
-    border-bottom-color: #EEEEEE;
-    background-color: #FAFAFA;
+    border-bottom-color: var(--borders-dividers);
+    background-color: var(--borders-dividers);
     padding: 0;
 }
 
@@ -289,9 +282,9 @@ COLOUR NOTES
     
     font-style: normal;
     font-weight: 200;
-    font-size: 16px;
-    line-height: 22px;
-    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--link-text);
   } 
   
   .modal-link .level-02-link {
@@ -299,9 +292,9 @@ COLOUR NOTES
     flex-direction: row;
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 22px;
-    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 18px;
+    color: var(--link-text);
     margin-top: 10px;
     margin-bottom: 10px;
   } 
@@ -314,8 +307,7 @@ COLOUR NOTES
     width: 100%;
     align-content: center;
     justify-content: center;
-    background-color: #005c97;
-    background-color: rgba(0,92,151,0.99);
+    background-color: var(--header-bg);
   }
   
   .nav-link-container {
@@ -333,17 +325,18 @@ COLOUR NOTES
     width: 35px;
     padding: 15px;
     font-size: 50px;
-    color: #ffffff;
+    color: var(--link-text);
   }
+  
   
 @media only screen and (max-width: 1280px){
   .navbar{
     padding: 0 12px 0 25px;
   }
 
-  .header-style .header-content .BClogo {
-    content: url("https://raw.githubusercontent.com/bcgov/design-system/master/components/assets/images/logo.svg");
-    width: 50px;
+  .BClogo {
+    content: url("https://nrs.objectstore.gov.bc.ca/scgis/general_images/BCID_V_RGB_pos.png");
+    width: 80px;
   }
 
   .button-content {
@@ -383,4 +376,8 @@ COLOUR NOTES
   .beta-banner p {
     text-align: center;
   }
+  
+  .headbutton-container {
+  display: none;
+}
 }
