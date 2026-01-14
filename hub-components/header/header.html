@@ -1,36 +1,82 @@
+<style>
+  
+/* Main elements - controls colour theme, DO NOT DELETE*/
+
+:root {
+    /* Colours */
+    --bc-blue: #003366;
+    --secondary-blue: #244C83;
+    --bc-yellow: #FCBA19;
+    --background-grey: #FAF9F8;
+    --accent-grey: #E3E3E3;
+    --main-font: #292929;
+    --news-background: #DEEAFA;
+    /* Spacing */
+    /* header = 55px, beta-banner = 40px */
+    --header-room: 95px;
+    --header-room-negative: -95px;
+    --row-padding: 40px 10%;
+    
+    /*apply provincial palette*/
+    --header-bg: #fff;
+    --header-text: var(--bc-blue);
+    --body-bg: #fff;
+    --body-text: var(--main-font);
+    --link-text: #1A5A96;
+    --accent-bright: var(--bc-yellow);
+    --borders-dividers: var(--accent-grey);
+}
+
+.layout-section .wideRowClass .category-panel,
+.layout-section .wideRowClass .chart-card,
+.layout-section .wideRowClass .gallery-container,
+.layout-section .wideRowClass .json-chart-card,
+.layout-section .wideRowClass .markdown-card,
+.layout-section .wideRowClass .summary-statistic-card {
+    margin: 0;
+}
+
+.product-footer.info-banner {
+    display: none !important;
+}
+
+.text-box {
+  max-width:900px;
+  text-align:justify;
+  color: var(--body-text);
+  font-size:18px;
+  margin:25px auto;
+}
+
+.text-box > h4 {
+  color:var(--bc-blue);
+}
+
+</style>
+
 <nav class="navbar navbar-default navbar-static-top first-tier header-style">
   <div class="header-content">
-    <a href="https://gov.bc.ca">
-      <img class="BClogo" src="https://github.com/bcgov/design-system/blob/master/components/assets/images/logo-banner.png?raw=true" alt="Province of British Columbia logo. Link opens the Government of British Columbia website.">
+        <a href="https://gov.bc.ca">
+      <img class="BClogo" src="https://nrs.objectstore.gov.bc.ca/scgis/general_images/BCID_H_RGB_pos.png" alt="Province of British Columbia logo. Link opens the Government of British Columbia website.">
     </a>
     <a class="BCLogo-link" href="/">
-      Header Title Here
+      Site Title
     </a>
   </div>
   
+
   <div class="menu-content">
     <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="URL HERE">Overview </a></li>
-        <li class="nav-item"><a class="nav-link" href="URL HERE">Tutorial </a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="URL HERE" data-toggle="dropdown">Maps & Data<span class="caret"></span></a>
+      <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">Dropdown Nav Item</a>
           <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-sublink" href="URL HERE">Dashboard 1</a></li>
-            <li class="nav-item"><a class="nav-sublink" href="URL HERE">Dashboard 2</a></li>
+            <li class="nav-item"><a class="nav-sublink" href="">Link 1</a></li>
+            <li class="nav-item"><a class="nav-sublink" href="">Link 2</a></li>
           </ul>
       </li>
-      <li class="nav-item"><a class="nav-link" href="URL HERE">Glossary</a></li>
+        <li class="nav-item"><a class="nav-link" href="/pages/project-gallery">Nav Item</a></li>
     </ul>
-  </div>
-  
-  <div class="button-content">
-    <button class="navbar-toggle-button" data-toggle="modal" data-target="#myModal2" aria-label="Site menu">
-      <div class="hamburger-container">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-    </button>
   </div>
   
 </nav>
@@ -40,17 +86,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <div class="beta-banner">
-            <p><span class="glyphicon glyphicon-info-sign"></span>&ensp;This site is in beta</p>
-          </div>
                   <nav class="navbar navbar-default navbar-static-top first-tier header-style">
             <div class="header-content">
               <a href="https://gov.bc.ca">
-                <img class="BClogo" src="https://github.com/bcgov/design-system/blob/master/components/assets/images/logo-banner.png?raw=true" alt="Province of British Columbia logo. Link opens the Government of British Columbia website.">
+                <img class="BClogo" src="https://nrs.objectstore.gov.bc.ca/scgis/general_images/BCID_H_RGB_pos.png" alt="Province of British Columbia logo. Link opens the Government of British Columbia website.">
               </a>
               <a class="BCLogo-link" href="/">
-                <img class="BCLogo" src="https://nrs.objectstore.gov.bc.ca/xedyjn/Projects/LidarBC/LidarBC_RGB_rev.png" alt="BC logo.">
-              </a>
+      Site Title
+    </a>
             </div>
             <div class="button-content-mobile">
               <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
@@ -62,21 +105,21 @@
               <div class="nav-link-container">
             <div class="col-sm-12 col-md-6 hub-column">
               <div class="modal-link">
-                <a class="level-02-link" href="URL HERE">Overview</a>
+                <a class="level-02-link" href="">Home</a>
               </div>
             </div>
             
             <div class="col-sm-12 col-md-6 hub-column">
               <div class="modal-link">
-                <h2 class="level-02-link">Maps & Data</h2>
-                <a href="URL HERE">Dashboard 1</a>
-                <a href="URL HERE">Dashboard 1</a>
+                <h2 class="level-02-link">Dropdown Nav Item</h2>
+                <a href="">Link 1</a>
+                <a href="">Link 2</a>
               </div>
             </div>
-
+            
             <div class="col-sm-12 col-md-6 hub-column">
               <div class="modal-link">
-                <a class="level-02-link" href="URL HERE">Glossary</a>
+                <a class="level-02-link" href="">Nav Item</a>
               </div>
             </div>
             
@@ -87,3 +130,6 @@
         </div>
     </div>
 </div>
+
+
+
