@@ -1,37 +1,47 @@
+<style>
+:root {
+    --gradient-left-color: rgba(73,98,38,0.9);
+    --gradient-right-color: rgba(73,98,38,0);
+    --banner-text-color: #fff;
+}
+
 .banner {
+    
     position: relative;
     height: 70vh;
     min-height: 400px;
-    background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pd19-3-22284a.jpg?auto=format&bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1400&s=561aa4f334e0129c5d1c6d102cc4936e') center/cover no-repeat;
-    background-position: 20% center
+    max-height: 400px;
+    background: url('HEADER URL HERE');
+    background-position: right 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
 /* dark‐blue → transparent gradient on top of image */
 .banner__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to right,
-      rgba(0,29,85,0.9) 20%,
-      rgba(0,29,85,0) 80%
+      var(--gradient-left-color) 15%,
+      var(--gradient-right-color) 85%
     );
 }
 .banner__inner {
-    position: relative;           /* sits above the overlay */
+    position: absolute;           /* sits above the overlay */
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
+    bottom:20px;
+    left:20px;
     padding: 4rem 2rem;
-    color: #fff;
+    color: var(--banner-text-color);
 }
 .banner__title {
-    font-size: 4rem;
+    font-size: 48px;
     line-height: 1.1;
     margin: 0 0 1rem;
-    font-weight: 300;
-}
-.banner__title--accent {
-    color: #fdb813;               /* gold accent */
-    font-weight: 500;
+    font-weight: 400;
 }
 .banner__tagline {
     font-size: 1.5rem;
@@ -41,18 +51,20 @@
     display: inline-block;
     padding: .75rem 1.5rem;
     border-radius: 4px;
-    text-decoration: none;
+    text-decoration: none !important;
+    font-weight:bold !important;
     font-size: 1rem;
     margin-right: 1rem;
     transition: background .2s, color .2s;
 }
 .btn--outline {
     border: 2px solid #fff;
-    color: #fff;
+    color: var(--banner-text-color);
     background: transparent;
 }
-  .btn--outline:hover {
+.btn--outline:hover {
     background: rgba(255,255,255,0.2);
+    color:var(--banner-text-color);
 }
 .btn--primary {
     background: #fdb813;
@@ -62,118 +74,5 @@
 .btn--primary:hover {
     background: #e6ac00;
 }
-  
-.flex-row-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content:center;
-  align-items:stretch;
-  align-content:flex-start;
-  gap:30px;
-  max-height: content;
-}
 
-.flex-row-container > a {
-  text-decoration:none;
-}
-
-.flex-row-item {
-  flex-grow: 1;
-  flex-shrink: 1;
-  /*flex-basis: content;*/
-  max-width:300px;
-  margin: 0px;
-  border-radius: 15px;
-  box-shadow: 2px 2px 5px #a3a3a3;
-  height: 100%;
-}
-
-.flex-row-item > img {
-  background-size: cover;
-  width: 100%;
-  height: 200px;
-  border-radius: 15px 15px 0px 0px;
-}
-
-.flex-row-item:hover {
-  outline: 2px solid #ed9f00;
-}
-
-.flex-title {
-  font-weight: bold;
-  font-size:16px;
-  text-align: center;
-  border-top: 5px solid #ed9f00;
-  width: 100%;
-  margin: 0px auto;
-  padding: 5px 15px;
-  background-color: #6f95c7;
-  color: #fff;
-}
-
-.flex-desc {
-  text-align: justify;
-  padding: 10px;
-  height:stretch;
-}
-
-.info-box {
-  background-color: #5475a7;
-  background-image: linear-gradient(to bottom right,#003366,#6f95c7);
-}
-
-.info-text {
-  color: #fff;
-  text-align: justify;
-  font-size: 18px;
-  font-family: Calibri;
-  margin: 0px auto;
-  padding: 0px 30px;
-  max-width: 1280px;
-}
-
-.info-text > h1 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 0px;
-}
-
-.assess-button {
-  border: 5px solid #213c6e;
-  background-color:#5475a7;
-  font-weight:bold;
-  text-decoration:none;
-  font-size:24px;
-  color:#fff;
-  padding:5px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-}
-
-.assess-button > a {
-  text-decoration:none;
-}
-
-.assess-button:hover {
-  border: 5px solid #e3a82b;
-  color: #fff;
-  text-decoration:none;
-}
-
-.ip-row {
-  border: 5px solid #213c6e;
-  /*height:100vh;
-  width:100%;*/
-}
-/*full page iframe adjustments*/
-.layout-section .wideRowClass .category-panel,
-.layout-section .wideRowClass .chart-card,
-.layout-section .wideRowClass .gallery-container,
-.layout-section .wideRowClass .json-chart-card,
-.layout-section .wideRowClass .markdown-card,
-.layout-section .wideRowClass .summary-statistic-card {
-    margin: 0;
-}
+</style>
